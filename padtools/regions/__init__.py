@@ -1,4 +1,5 @@
 import os
+import os.path
 import json
 import collections
 
@@ -24,4 +25,7 @@ class RegionsMetaClass(type, collections.Set):
 class Regions(object, metaclass=RegionsMetaClass):
 	pass
 
-Regions.load(os.path.join(__file__, "..", "data", "regions.json"))
+rela = os.path.dirname(__file__)
+Regions.load(os.path.join(rela, "data", "regions.json"))
+#original doesnt work on mac
+#Regions.load(os.path.join(__file__, "..", "data", "regions.json"))

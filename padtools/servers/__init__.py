@@ -1,4 +1,5 @@
 import os
+import os.path
 import json
 
 from .server import Server
@@ -20,4 +21,7 @@ class ServersMetaClass(type):
 class Servers(object, metaclass=ServersMetaClass):
 	pass
 
-Servers.load(os.path.join(__file__, "..", "data", "servers.json"))
+#Servers.load(os.path.join(__file__, "..", "data", "servers.json"))
+
+rela = os.path.dirname(__file__)
+Servers.load(os.path.join(rela, "data", "servers.json"))
